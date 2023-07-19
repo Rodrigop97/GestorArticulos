@@ -50,7 +50,19 @@ namespace Negocio
                 lector.Close();
             conexion.Close();
         }
-
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void setParametros(string nombre, object valor)
         {
             comando.Parameters.AddWithValue(nombre, valor);

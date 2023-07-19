@@ -47,5 +47,28 @@ namespace Negocio
                 throw ex;
             }
         }
+
+        public void agregar(Articulo nuevo)
+        {
+            AccesoBD datos = new AccesoBD();
+            try
+            {
+                datos.setConsulta("Insert into ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl) values(@codigo, @nombre, @descripcion , @urlImagen)");
+                datos.setParametros("@codigo", nuevo.Codigo);
+                datos.setParametros("@nombre", nuevo.Nombre);
+                datos.setParametros("@descripcion", nuevo.Descripcion);
+                datos.setParametros("@urlImagen", nuevo.UrlImagen);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

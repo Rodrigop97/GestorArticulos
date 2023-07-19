@@ -43,6 +43,9 @@
             this.tbxImagen = new System.Windows.Forms.TextBox();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblObligatorios = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,10 +122,13 @@
             // 
             // tbxCodigo
             // 
+            this.tbxCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxCodigo.ForeColor = System.Drawing.SystemColors.WindowText;
             this.tbxCodigo.Location = new System.Drawing.Point(262, 27);
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(100, 20);
             this.tbxCodigo.TabIndex = 8;
+            this.tbxCodigo.TextChanged += new System.EventHandler(this.tbxCodigo_TextChanged);
             // 
             // tbxNombre
             // 
@@ -130,6 +136,7 @@
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(100, 20);
             this.tbxNombre.TabIndex = 9;
+            this.tbxNombre.TextChanged += new System.EventHandler(this.tbxNombre_TextChanged);
             // 
             // tbxDescripcion
             // 
@@ -144,6 +151,7 @@
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbxPrecio.TabIndex = 12;
+            this.tbxPrecio.TextChanged += new System.EventHandler(this.tbxPrecio_TextChanged);
             // 
             // tbxImagen
             // 
@@ -168,11 +176,46 @@
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 16;
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(238, 316);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 17;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(397, 316);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // lblObligatorios
+            // 
+            this.lblObligatorios.AutoSize = true;
+            this.lblObligatorios.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObligatorios.ForeColor = System.Drawing.Color.Red;
+            this.lblObligatorios.Location = new System.Drawing.Point(218, 9);
+            this.lblObligatorios.Name = "lblObligatorios";
+            this.lblObligatorios.Size = new System.Drawing.Size(178, 15);
+            this.lblObligatorios.TabIndex = 19;
+            this.lblObligatorios.Text = "Llenar los campos obligatorios";
+            this.lblObligatorios.Visible = false;
+            // 
             // altaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblObligatorios);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.cbxMarca);
             this.Controls.Add(this.tbxImagen);
@@ -214,5 +257,8 @@
         private System.Windows.Forms.TextBox tbxImagen;
         private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.ComboBox cbxCategoria;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblObligatorios;
     }
 }
