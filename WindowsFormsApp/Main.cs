@@ -21,9 +21,9 @@ namespace WindowsFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //List<Articulo> list = ArticuloNegocio.listar();
-            //dgvArticulos.DataSource = list;
-            dgvArticulos.DataSource = ArticuloNegocio.listar();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            List<Articulo> listaArticulos = articuloNegocio.listar();
+            dgvArticulos.DataSource = listaArticulos;
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             cargarImagen((string)dgvArticulos["UrlImagen", 0].Value);
@@ -52,6 +52,8 @@ namespace WindowsFormsApp
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            altaArticulo alta = new altaArticulo();
+            alta.ShowDialog();
 
         }
     }

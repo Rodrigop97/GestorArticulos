@@ -10,7 +10,7 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-        static public List<Articulo> listar()
+        public List<Articulo> listar()
         {
             List<Articulo> articulos = new List<Articulo>();
             AccesoBD datos = new AccesoBD();
