@@ -21,14 +21,19 @@ namespace WindowsFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            cargarLista();
+        }
+        
+        private void cargarLista()
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();   
             List<Articulo> listaArticulos = articuloNegocio.listar();
             dgvArticulos.DataSource = listaArticulos;
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
             cargarImagen((string)dgvArticulos["UrlImagen", 0].Value);
-        }
 
+        }
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvArticulos.CurrentRow != null) 
@@ -54,7 +59,7 @@ namespace WindowsFormsApp
         {
             altaArticulo alta = new altaArticulo();
             alta.ShowDialog();
-
+            cargarLista();
         }
     }
 }

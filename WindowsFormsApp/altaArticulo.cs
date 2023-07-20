@@ -82,8 +82,10 @@ namespace WindowsFormsApp
                     articulo.Codigo = tbxCodigo.Text;
                     articulo.Nombre = tbxNombre.Text;
                     articulo.Descripcion = tbxDescripcion.Text;
+                    articulo.Marca = (Marca)cbxMarca.SelectedItem;
+                    articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                    articulo.UrlImagen = tbxImagen.Text;
                     articulo.Precio = decimal.Parse(tbxPrecio.Text);
-
                     if (articulo.Id != 0)
                     {
 

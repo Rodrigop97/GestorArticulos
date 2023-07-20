@@ -53,10 +53,14 @@ namespace Negocio
             AccesoBD datos = new AccesoBD();
             try
             {
-                datos.setConsulta("Insert into ARTICULOS(Codigo, Nombre, Descripcion, Precio) values(@codigo, @nombre, @descripcion , @precio)");
+                
+                datos.setConsulta("Insert into ARTICULOS values(@codigo,@nombre,@descripcion,@idMarca, @idCategoria, @imagen, @precio)");
                 datos.setParametros("@codigo", nuevo.Codigo);
                 datos.setParametros("@nombre", nuevo.Nombre);
                 datos.setParametros("@descripcion", nuevo.Descripcion);
+                datos.setParametros("@idMarca", nuevo.Marca.Id);
+                datos.setParametros("@idCategoria", nuevo.Categoria.Id);
+                datos.setParametros("@imagen", nuevo.UrlImagen);
                 datos.setParametros("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
             }
