@@ -44,7 +44,7 @@ namespace WindowsFormsApp
             {
                 imagen.Load(link);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 imagen.Load("https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png");
             }

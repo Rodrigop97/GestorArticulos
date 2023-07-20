@@ -53,11 +53,11 @@ namespace Negocio
             AccesoBD datos = new AccesoBD();
             try
             {
-                datos.setConsulta("Insert into ARTICULOS(Codigo, Nombre, Descripcion, ImagenUrl) values(@codigo, @nombre, @descripcion , @urlImagen)");
+                datos.setConsulta("Insert into ARTICULOS(Codigo, Nombre, Descripcion, Precio) values(@codigo, @nombre, @descripcion , @precio)");
                 datos.setParametros("@codigo", nuevo.Codigo);
                 datos.setParametros("@nombre", nuevo.Nombre);
                 datos.setParametros("@descripcion", nuevo.Descripcion);
-                datos.setParametros("@urlImagen", nuevo.UrlImagen);
+                datos.setParametros("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

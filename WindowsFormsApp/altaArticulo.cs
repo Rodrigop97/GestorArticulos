@@ -23,8 +23,30 @@ namespace WindowsFormsApp
         {
             this.articulo = articulo;
             InitializeComponent();
+            llenarCampos();
         }
-
+        private void llenarCampos()
+        {
+            tbxCodigo.Text = articulo.Codigo;
+            tbxNombre.Text = articulo.Nombre;
+            tbxDescripcion.Text = articulo.Descripcion;
+            //cbxMarca.Text = 
+            //cbxCategoria.Text = 
+            tbxPrecio.Text = articulo.Precio.ToString();
+            tbxImagen.Text = articulo.UrlImagen;
+            cargarImagen(articulo.UrlImagen);
+        }
+        private void cargarImagen(string link)
+        {
+            try
+            {
+                imagen.Load(link);
+            }
+            catch (Exception)
+            {
+                imagen.Load("https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png");
+            }
+        }
         private void altaArticulo_Load(object sender, EventArgs e)
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
@@ -54,10 +76,12 @@ namespace WindowsFormsApp
             if (verificarCampos())
             {
                 try
-                {
+                {   
+                    articulo = new Articulo();
                     ArticuloNegocio articuloNegocio = new ArticuloNegocio();
                     articulo.Codigo = tbxCodigo.Text;
                     articulo.Nombre = tbxNombre.Text;
+                    articulo.Descripcion = tbxDescripcion.Text;
                     articulo.Precio = decimal.Parse(tbxPrecio.Text);
 
                     if (articulo.Id != 0)
@@ -114,6 +138,11 @@ namespace WindowsFormsApp
         private void tbxPrecio_TextChanged(object sender, EventArgs e)
         {
             tbxPrecio.BackColor = Color.White;
+        }
+
+        private void tbxImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(tbxImagen.Text);
         }
     }
 }
