@@ -47,6 +47,20 @@ namespace Negocio
                 throw ex;
             }
         }
+        public void eliminar(Articulo articulo)
+        {
+            AccesoBD datos = new AccesoBD();
+            try
+            {
+                datos.setConsulta("delete from ARTICULOS where Id = @id");
+                datos.setParametro("@id", articulo.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void modificar(Articulo articulo)
         {
             AccesoBD datos = new AccesoBD();
@@ -78,8 +92,7 @@ namespace Negocio
         {
             AccesoBD datos = new AccesoBD();
             try
-            {
-                
+            {   
                 datos.setConsulta("Insert into ARTICULOS values(@codigo,@nombre,@descripcion,@idMarca, @idCategoria, @imagen, @precio)");
                 datos.setParametro("@codigo", nuevo.Codigo);
                 datos.setParametro("@nombre", nuevo.Nombre);
@@ -92,7 +105,6 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

@@ -33,5 +33,23 @@ namespace Negocio
                 throw ex;
             }
         }
+        public void agregar(Categoria nuevo)
+        {
+            AccesoBD datos = new AccesoBD();
+            try
+            {
+                datos.setConsulta("insert into CATEGORIAS values(@desc)");
+                datos.setParametro("@desc", nuevo.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

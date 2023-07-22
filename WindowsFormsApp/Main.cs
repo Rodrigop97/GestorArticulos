@@ -170,5 +170,22 @@ namespace WindowsFormsApp
             altaArticulo.ShowDialog();
             cargarLista();
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                articuloNegocio.eliminar(seleccionado);
+                cargarLista();
+                MessageBox.Show("Articulo eliminado exitosamente");
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("No se pudo eliminar el articulo, intente mas tarde");
+            }
+            
+        }
     }
 }

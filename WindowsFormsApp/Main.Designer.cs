@@ -35,13 +35,13 @@
             this.lblFiltro1 = new System.Windows.Forms.Label();
             this.tbxBusqueda = new System.Windows.Forms.TextBox();
             this.lblFiltro2 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblFiltro4 = new System.Windows.Forms.Label();
             this.lblFiltro3 = new System.Windows.Forms.Label();
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.cbxPrecio = new System.Windows.Forms.ComboBox();
             this.tbxPrecio = new System.Windows.Forms.TextBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             this.SuspendLayout();
@@ -111,15 +111,6 @@
             this.lblFiltro2.TabIndex = 7;
             this.lblFiltro2.Text = "Marca";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(456, 314);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Filtro de busqueda";
-            // 
             // lblFiltro4
             // 
             this.lblFiltro4.AutoSize = true;
@@ -180,18 +171,28 @@
             this.tbxPrecio.TabIndex = 14;
             this.tbxPrecio.TextChanged += new System.EventHandler(this.tbxPrecio_TextChanged);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(459, 292);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 15;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 356);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.tbxPrecio);
             this.Controls.Add(this.cbxPrecio);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.cbxMarca);
             this.Controls.Add(this.lblFiltro3);
             this.Controls.Add(this.lblFiltro4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFiltro2);
             this.Controls.Add(this.tbxBusqueda);
             this.Controls.Add(this.lblFiltro1);
@@ -218,13 +219,13 @@
         private System.Windows.Forms.Label lblFiltro1;
         private System.Windows.Forms.TextBox tbxBusqueda;
         private System.Windows.Forms.Label lblFiltro2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblFiltro4;
         private System.Windows.Forms.Label lblFiltro3;
         private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.ComboBox cbxCategoria;
         private System.Windows.Forms.ComboBox cbxPrecio;
         private System.Windows.Forms.TextBox tbxPrecio;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
 

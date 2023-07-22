@@ -169,6 +169,7 @@
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(121, 21);
             this.cbxMarca.TabIndex = 15;
+            this.cbxMarca.Leave += new System.EventHandler(this.cbxMarca_Leave);
             // 
             // cbxCategoria
             // 
@@ -177,6 +178,7 @@
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 16;
+            this.cbxCategoria.Leave += new System.EventHandler(this.cbxCategoria_Leave);
             // 
             // btnAgregar
             // 
