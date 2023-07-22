@@ -47,6 +47,32 @@ namespace Negocio
                 throw ex;
             }
         }
+        public void modificar(Articulo articulo)
+        {
+            AccesoBD datos = new AccesoBD();
+            try
+            {
+                datos.setConsulta("update ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @desc, IdMarca = @idMarca, IdCategoria = @idCat, ImagenUrl = @img, Precio = @precio where Id = @id");
+                datos.setParametro("@id", articulo.Id);
+                datos.setParametro("@codigo", articulo.Codigo);
+                datos.setParametro("@nombre", articulo.Nombre);
+                datos.setParametro("@desc", articulo.Descripcion);
+                datos.setParametro("@idMarca", articulo.Marca.Id);
+                datos.setParametro("@idCat", articulo.Categoria.Id);
+                datos.setParametro("@img", articulo.UrlImagen);
+                datos.setParametro("@precio", articulo.Precio);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
         public void agregar(Articulo nuevo)
         {
@@ -55,13 +81,13 @@ namespace Negocio
             {
                 
                 datos.setConsulta("Insert into ARTICULOS values(@codigo,@nombre,@descripcion,@idMarca, @idCategoria, @imagen, @precio)");
-                datos.setParametros("@codigo", nuevo.Codigo);
-                datos.setParametros("@nombre", nuevo.Nombre);
-                datos.setParametros("@descripcion", nuevo.Descripcion);
-                datos.setParametros("@idMarca", nuevo.Marca.Id);
-                datos.setParametros("@idCategoria", nuevo.Categoria.Id);
-                datos.setParametros("@imagen", nuevo.UrlImagen);
-                datos.setParametros("@precio", nuevo.Precio);
+                datos.setParametro("@codigo", nuevo.Codigo);
+                datos.setParametro("@nombre", nuevo.Nombre);
+                datos.setParametro("@descripcion", nuevo.Descripcion);
+                datos.setParametro("@idMarca", nuevo.Marca.Id);
+                datos.setParametro("@idCategoria", nuevo.Categoria.Id);
+                datos.setParametro("@imagen", nuevo.UrlImagen);
+                datos.setParametro("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

@@ -127,15 +127,14 @@ namespace WindowsFormsApp
             {
                 listaFiltrada = listaFiltrada.FindAll(x => x.Categoria.Descripcion == filtroCategoria);
             }
-            if (filtroPrecio == "Mayor a")
+            if (filtroPrecio == "Mayor a" && tbxPrecio.Text != "")
             {
                 listaFiltrada = listaFiltrada.FindAll(x => x.Precio > decimal.Parse(tbxPrecio.Text));
             }
-            if (filtroPrecio == "Menor a")
+            if (filtroPrecio == "Menor a" && tbxPrecio.Text != "")
             {
                 listaFiltrada = listaFiltrada.FindAll(x => x.Precio < decimal.Parse(tbxPrecio.Text));
             }
-
             dgvArticulos.DataSource = listaFiltrada;
             ocultarColumnas();
         }
@@ -155,9 +154,21 @@ namespace WindowsFormsApp
         private void cbxPrecio_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (cbxPrecio.SelectedItem.ToString() != "")
+            {
                 tbxPrecio.Enabled = true;
+                if (tbxPrecio.Text != "")
+                    establecerFiltros();
+            }
             else
                 tbxPrecio.Enabled = false;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            altaArticulo altaArticulo = new altaArticulo(seleccionado);
+            altaArticulo.ShowDialog();
+            cargarLista();
         }
     }
 }

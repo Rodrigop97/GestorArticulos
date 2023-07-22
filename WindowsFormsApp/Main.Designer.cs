@@ -83,6 +83,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblFiltro1
             // 
@@ -183,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 344);
+            this.ClientSize = new System.Drawing.Size(905, 356);
             this.Controls.Add(this.tbxPrecio);
             this.Controls.Add(this.cbxPrecio);
             this.Controls.Add(this.cbxCategoria);

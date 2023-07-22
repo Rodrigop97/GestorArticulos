@@ -24,6 +24,7 @@ namespace WindowsFormsApp
             this.articulo = articulo;
             InitializeComponent();
             llenarCampos();
+            btnAgregar.Text = "Guardar";
         }
         private void llenarCampos()
         {
@@ -75,33 +76,36 @@ namespace WindowsFormsApp
 
             if (verificarCampos())
             {
-                try
-                {   
-                    articulo = new Articulo();
-                    ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-                    articulo.Codigo = tbxCodigo.Text;
-                    articulo.Nombre = tbxNombre.Text;
-                    articulo.Descripcion = tbxDescripcion.Text;
-                    articulo.Marca = (Marca)cbxMarca.SelectedItem;
-                    articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
-                    articulo.UrlImagen = tbxImagen.Text;
-                    articulo.Precio = decimal.Parse(tbxPrecio.Text);
-                    if (articulo.Id != 0)
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                if (articulo == null)
+                        articulo = new Articulo();
+                    try
+                    {   
+                        articulo.Codigo = tbxCodigo.Text;
+                        articulo.Nombre = tbxNombre.Text;
+                        articulo.Descripcion = tbxDescripcion.Text;
+                        articulo.Marca = (Marca)cbxMarca.SelectedItem;
+                        articulo.Categoria = (Categoria)cbxCategoria.SelectedItem;
+                        articulo.UrlImagen = tbxImagen.Text;
+                        articulo.Precio = decimal.Parse(tbxPrecio.Text);
+                        if (articulo.Id != 0)
+                        {
+                            articuloNegocio.modificar(articulo);
+                            MessageBox.Show("Articulo modificado exitosamente");
+                        }
+                        else
+                        {
+                            articuloNegocio.agregar(articulo);
+                            MessageBox.Show("Articulo agregado exitosamente");
+                        }
+                        this.Close();
+                    }
+                    catch (Exception ex)
                     {
 
+                        throw ex;
                     }
-                    else
-                    {
-                        articuloNegocio.agregar(articulo);
-                        MessageBox.Show("Articulo agregado exitosamente");
-                    }
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
+                
             }
         }
 
