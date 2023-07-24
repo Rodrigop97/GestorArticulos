@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.imagen = new System.Windows.Forms.PictureBox();
@@ -42,23 +43,54 @@
             this.cbxPrecio = new System.Windows.Forms.ComboBox();
             this.tbxPrecio = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
+            this.dgvArticulos.AllowUserToAddRows = false;
+            this.dgvArticulos.AllowUserToDeleteRows = false;
+            this.dgvArticulos.AllowUserToResizeColumns = false;
+            this.dgvArticulos.AllowUserToResizeRows = false;
+            this.dgvArticulos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvArticulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dgvArticulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvArticulos.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvArticulos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvArticulos.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvArticulos.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.dgvArticulos.Location = new System.Drawing.Point(2, 1);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvArticulos.MaximumSize = new System.Drawing.Size(425, 278);
+            this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.ReadOnly = true;
+            this.dgvArticulos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvArticulos.RowHeadersVisible = false;
-            this.dgvArticulos.Size = new System.Drawing.Size(617, 256);
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvArticulos.Size = new System.Drawing.Size(425, 278);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(459, 263);
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.Location = new System.Drawing.Point(548, 332);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 1;
@@ -68,16 +100,18 @@
             // 
             // imagen
             // 
-            this.imagen.Location = new System.Drawing.Point(625, 1);
+            this.imagen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.imagen.Location = new System.Drawing.Point(461, 12);
             this.imagen.Name = "imagen";
-            this.imagen.Size = new System.Drawing.Size(280, 256);
+            this.imagen.Size = new System.Drawing.Size(322, 267);
             this.imagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imagen.TabIndex = 2;
             this.imagen.TabStop = false;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(540, 263);
+            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnModificar.Location = new System.Drawing.Point(629, 332);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 3;
@@ -87,8 +121,9 @@
             // 
             // lblFiltro1
             // 
+            this.lblFiltro1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFiltro1.AutoSize = true;
-            this.lblFiltro1.Location = new System.Drawing.Point(13, 265);
+            this.lblFiltro1.Location = new System.Drawing.Point(12, 300);
             this.lblFiltro1.Name = "lblFiltro1";
             this.lblFiltro1.Size = new System.Drawing.Size(111, 13);
             this.lblFiltro1.TabIndex = 5;
@@ -96,7 +131,8 @@
             // 
             // tbxBusqueda
             // 
-            this.tbxBusqueda.Location = new System.Drawing.Point(130, 262);
+            this.tbxBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbxBusqueda.Location = new System.Drawing.Point(144, 297);
             this.tbxBusqueda.Name = "tbxBusqueda";
             this.tbxBusqueda.Size = new System.Drawing.Size(126, 20);
             this.tbxBusqueda.TabIndex = 6;
@@ -104,8 +140,9 @@
             // 
             // lblFiltro2
             // 
+            this.lblFiltro2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFiltro2.AutoSize = true;
-            this.lblFiltro2.Location = new System.Drawing.Point(12, 289);
+            this.lblFiltro2.Location = new System.Drawing.Point(12, 332);
             this.lblFiltro2.Name = "lblFiltro2";
             this.lblFiltro2.Size = new System.Drawing.Size(37, 13);
             this.lblFiltro2.TabIndex = 7;
@@ -113,8 +150,9 @@
             // 
             // lblFiltro4
             // 
+            this.lblFiltro4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFiltro4.AutoSize = true;
-            this.lblFiltro4.Location = new System.Drawing.Point(12, 314);
+            this.lblFiltro4.Location = new System.Drawing.Point(12, 375);
             this.lblFiltro4.Name = "lblFiltro4";
             this.lblFiltro4.Size = new System.Drawing.Size(37, 13);
             this.lblFiltro4.TabIndex = 9;
@@ -122,8 +160,9 @@
             // 
             // lblFiltro3
             // 
+            this.lblFiltro3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFiltro3.AutoSize = true;
-            this.lblFiltro3.Location = new System.Drawing.Point(253, 292);
+            this.lblFiltro3.Location = new System.Drawing.Point(285, 332);
             this.lblFiltro3.Name = "lblFiltro3";
             this.lblFiltro3.Size = new System.Drawing.Size(52, 13);
             this.lblFiltro3.TabIndex = 10;
@@ -131,10 +170,11 @@
             // 
             // cbxMarca
             // 
+            this.cbxMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxMarca.FormattingEnabled = true;
-            this.cbxMarca.Location = new System.Drawing.Point(67, 286);
+            this.cbxMarca.Location = new System.Drawing.Point(144, 334);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(121, 21);
             this.cbxMarca.TabIndex = 11;
@@ -142,10 +182,11 @@
             // 
             // cbxCategoria
             // 
+            this.cbxCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCategoria.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxCategoria.FormattingEnabled = true;
-            this.cbxCategoria.Location = new System.Drawing.Point(311, 289);
+            this.cbxCategoria.Location = new System.Drawing.Point(352, 334);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbxCategoria.TabIndex = 12;
@@ -153,10 +194,11 @@
             // 
             // cbxPrecio
             // 
+            this.cbxPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbxPrecio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPrecio.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbxPrecio.FormattingEnabled = true;
-            this.cbxPrecio.Location = new System.Drawing.Point(67, 311);
+            this.cbxPrecio.Location = new System.Drawing.Point(144, 372);
             this.cbxPrecio.Name = "cbxPrecio";
             this.cbxPrecio.Size = new System.Drawing.Size(121, 21);
             this.cbxPrecio.TabIndex = 13;
@@ -164,8 +206,9 @@
             // 
             // tbxPrecio
             // 
+            this.tbxPrecio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.tbxPrecio.Enabled = false;
-            this.tbxPrecio.Location = new System.Drawing.Point(194, 311);
+            this.tbxPrecio.Location = new System.Drawing.Point(288, 372);
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(126, 20);
             this.tbxPrecio.TabIndex = 14;
@@ -173,7 +216,8 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(459, 292);
+            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEliminar.Location = new System.Drawing.Point(710, 332);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 15;
@@ -181,11 +225,34 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(545, 282);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(35, 13);
+            this.lblDescripcion.TabIndex = 16;
+            this.lblDescripcion.Text = "label1";
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.Location = new System.Drawing.Point(458, 265);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(38, 14);
+            this.lblCodigo.TabIndex = 17;
+            this.lblCodigo.Text = "label1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 356);
+            this.ClientSize = new System.Drawing.Size(793, 414);
+            this.Controls.Add(this.lblCodigo);
+            this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.tbxPrecio);
             this.Controls.Add(this.cbxPrecio);
@@ -200,6 +267,9 @@
             this.Controls.Add(this.imagen);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvArticulos);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(809, 453);
+            this.MinimumSize = new System.Drawing.Size(809, 453);
             this.Name = "Main";
             this.Text = "Lista de articulos";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -226,6 +296,8 @@
         private System.Windows.Forms.ComboBox cbxPrecio;
         private System.Windows.Forms.TextBox tbxPrecio;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.Label lblCodigo;
     }
 }
 

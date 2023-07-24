@@ -33,7 +33,14 @@ namespace WindowsFormsApp
             listaArticulos = articuloNegocio.listar();
             dgvArticulos.DataSource = listaArticulos;
             ocultarColumnas();
-            cargarImagen((string)dgvArticulos["UrlImagen", 0].Value);
+            try
+            {
+                cargarImagen((string)dgvArticulos["UrlImagen", 0].Value);
+
+            }
+            catch (Exception)
+            {
+            }
         }
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -41,6 +48,8 @@ namespace WindowsFormsApp
             {
                 Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.UrlImagen);
+                lblCodigo.Text = "Codigo: " + seleccionado.Codigo;
+                lblDescripcion.Text = seleccionado.Descripcion;
             }
         }
 
@@ -61,6 +70,11 @@ namespace WindowsFormsApp
             altaArticulo alta = new altaArticulo();
             alta.ShowDialog();
             cargarLista();
+            cbxMarca.SelectedIndex = 0;
+            cbxCategoria.SelectedIndex = 0;
+            cbxPrecio.SelectedIndex = 0;
+            tbxPrecio.Clear();
+            tbxPrecio.Enabled = false;
         }
 
         private void tbxBusqueda_TextChanged(object sender, EventArgs e)
@@ -143,6 +157,8 @@ namespace WindowsFormsApp
         {
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["UrlImagen"].Visible = false;
+            dgvArticulos.Columns["Codigo"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
         }
 
         private void tbxPrecio_TextChanged(object sender, EventArgs e)
@@ -169,6 +185,11 @@ namespace WindowsFormsApp
             altaArticulo altaArticulo = new altaArticulo(seleccionado);
             altaArticulo.ShowDialog();
             cargarLista();
+            cbxMarca.SelectedIndex = 0;
+            cbxCategoria.SelectedIndex = 0;
+            cbxPrecio.SelectedIndex = 0;
+            tbxPrecio.Clear();
+            tbxPrecio.Enabled = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
