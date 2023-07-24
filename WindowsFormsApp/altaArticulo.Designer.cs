@@ -166,21 +166,25 @@
             // 
             // cbxMarca
             // 
-            this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cbxMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(123, 150);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(114, 21);
+            this.cbxMarca.Sorted = true;
             this.cbxMarca.TabIndex = 3;
             this.cbxMarca.Leave += new System.EventHandler(this.cbxMarca_Leave);
             // 
             // cbxCategoria
             // 
-            this.cbxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxCategoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(123, 199);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(114, 21);
+            this.cbxCategoria.Sorted = true;
             this.cbxCategoria.TabIndex = 4;
             this.cbxCategoria.Leave += new System.EventHandler(this.cbxCategoria_Leave);
             // 
@@ -259,6 +263,9 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.imagen);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(550, 469);
+            this.MinimumSize = new System.Drawing.Size(550, 469);
             this.Name = "altaArticulo";
             this.Text = "altaArticulo";
             this.Load += new System.EventHandler(this.altaArticulo_Load);

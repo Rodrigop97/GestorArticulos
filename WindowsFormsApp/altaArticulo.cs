@@ -19,6 +19,7 @@ namespace WindowsFormsApp
         {
             InitializeComponent();
             Text = "Añadir un articulo";
+            cargarImagen("");
         }
         public altaArticulo(Articulo articulo)
         {
@@ -26,6 +27,7 @@ namespace WindowsFormsApp
             this.articulo = articulo;
             Text = "Modificar articulo";
             btnAgregar.Text = "Guardar";
+            cargarImagen("");
         }
         private void llenarCampos()
         {
