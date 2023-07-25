@@ -145,8 +145,9 @@ namespace WindowsFormsApp
         {
             foreach (char item in cadena)
             {
-                if (!(char.IsNumber(item)))
+                if (!(char.IsNumber(item)) && item != ',')
                     return false;
+                
             }
             return true;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,6 @@ namespace WindowsFormsApp
             try
             {
                 cargarImagen((string)dgvArticulos["UrlImagen", 0].Value);
-
             }
             catch (Exception)
             {
@@ -69,13 +69,9 @@ namespace WindowsFormsApp
         {
             altaArticulo alta = new altaArticulo();
             alta.ShowDialog();
+            borrarFiltros();
             cargarLista();
-            cbxMarca.SelectedIndex = 0;
-            cbxCategoria.SelectedIndex = 0;
-            cbxPrecio.SelectedIndex = 0;
-            tbxPrecio.Clear();
-            tbxPrecio.Enabled = false;
-            tbxBusqueda.Text = "";
+
         }
 
         private void tbxBusqueda_TextChanged(object sender, EventArgs e)
@@ -173,30 +169,47 @@ namespace WindowsFormsApp
             if (cbxPrecio.SelectedItem.ToString() != "")
             {
                 tbxPrecio.Enabled = true;
-                if (tbxPrecio.Text != "")
-                    establecerFiltros();
             }
             else
+            {
                 tbxPrecio.Enabled = false;
+                tbxPrecio.Text = "";
+            }
+            establecerFiltros();
         }
-
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void borrarFiltros()
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            altaArticulo altaArticulo = new altaArticulo(seleccionado);
-            altaArticulo.ShowDialog();
-            cargarLista();
+            tbxBusqueda.Text = "";
             cbxMarca.SelectedIndex = 0;
             cbxCategoria.SelectedIndex = 0;
             cbxPrecio.SelectedIndex = 0;
             tbxPrecio.Clear();
             tbxPrecio.Enabled = false;
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                altaArticulo altaArticulo = new altaArticulo(seleccionado);
+                altaArticulo.ShowDialog();
+                borrarFiltros();
+                cargarLista();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("No se selecciono ningun elemento");
+                borrarFiltros();
+            }
+            catch (Exception)
+            {}
+        }
         private bool soloNumeros(string cadena)
         {
             foreach (char item in cadena)
             {
-                if (!(char.IsNumber(item)))
+                if (!(char.IsNumber(item)) && item != ',')
                 {
                     lblAdvertenciaPrecio.Visible = true;
                     return false;
@@ -208,19 +221,24 @@ namespace WindowsFormsApp
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                borrarFiltros();
                 articuloNegocio.eliminar(seleccionado);
                 cargarLista();
                 MessageBox.Show("Articulo eliminado exitosamente");
             }
-            catch (Exception )
+            catch (NullReferenceException ex) 
+            {
+                MessageBox.Show("No se selecciono ningun elemento");
+                borrarFiltros();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("No se pudo eliminar el articulo, intente mas tarde");
             }
-            
         }
     }
 }

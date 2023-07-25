@@ -17,8 +17,10 @@ namespace Dominio
         public string UrlImagen { get; set; }
 
         private decimal precio;
-        public decimal Precio { get {return Decimal.Round(precio, 2); } set { precio = value; } }
-        
-        
+        public decimal Precio 
+        { 
+            get { return Decimal.Round(precio, 2); } 
+            set { precio = value; } 
+        }
     }
 }

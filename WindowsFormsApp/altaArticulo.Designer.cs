@@ -173,7 +173,6 @@
             this.cbxMarca.Location = new System.Drawing.Point(123, 150);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(114, 21);
-            this.cbxMarca.Sorted = true;
             this.cbxMarca.TabIndex = 3;
             this.cbxMarca.Leave += new System.EventHandler(this.cbxMarca_Leave);
             // 
@@ -185,7 +184,6 @@
             this.cbxCategoria.Location = new System.Drawing.Point(123, 199);
             this.cbxCategoria.Name = "cbxCategoria";
             this.cbxCategoria.Size = new System.Drawing.Size(114, 21);
-            this.cbxCategoria.Sorted = true;
             this.cbxCategoria.TabIndex = 4;
             this.cbxCategoria.Leave += new System.EventHandler(this.cbxCategoria_Leave);
             // 
