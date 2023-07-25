@@ -197,7 +197,7 @@ namespace WindowsFormsApp
                 borrarFiltros();
                 cargarLista();
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException )
             {
                 MessageBox.Show("No se selecciono ningun elemento");
                 borrarFiltros();
@@ -230,12 +230,12 @@ namespace WindowsFormsApp
                 cargarLista();
                 MessageBox.Show("Articulo eliminado exitosamente");
             }
-            catch (NullReferenceException ex) 
+            catch (NullReferenceException) 
             {
                 MessageBox.Show("No se selecciono ningun elemento");
                 borrarFiltros();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("No se pudo eliminar el articulo, intente mas tarde");
             }
