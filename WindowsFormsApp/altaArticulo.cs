@@ -241,18 +241,5 @@ namespace WindowsFormsApp
                 lblAdvertenciaPrecio.Visible = true;
         }
 
-        /*
-         * PARA SELECCIONAR Y GUARDAR LA IMAGEN DE LOS ARCHIVOS LOCALES
-         archivo = new OpenFileDialog();
-            archivo.Filter = "jpg|*.jpg;|png|*.png";
-            if(archivo.ShowDialog() == DialogResult.OK)
-            {
-                txtUrlImagen.Text = archivo.FileName;
-                cargarImagen(archivo.FileName);
-
-                //guardo la imagen
-                //File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName);
-            }
-         */
     }
 }
