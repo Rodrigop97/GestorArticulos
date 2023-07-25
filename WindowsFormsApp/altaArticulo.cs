@@ -134,27 +134,21 @@ namespace WindowsFormsApp
             {
                 tbxPrecio.BackColor = Color.FromArgb(250, 123, 127);
             }
-            if (tbxPrecio.Text == "" || tbxNombre.Text == "" || tbxCodigo.Text == "")
+            if (tbxPrecio.Text == "" || tbxNombre.Text == "" || tbxCodigo.Text == "" || !(soloNumeros(tbxPrecio.Text)))
             {
                 lblObligatorios.Visible = true;
                 return false;
             }
             return true;
         }
-
-        private void tbxCodigo_TextChanged(object sender, EventArgs e)
+        private bool soloNumeros(string cadena)
         {
-            tbxCodigo.BackColor = Color.White;
-        }
-
-        private void tbxNombre_TextChanged(object sender, EventArgs e)
-        {
-            tbxNombre.BackColor = Color.White;
-        }
-
-        private void tbxPrecio_TextChanged(object sender, EventArgs e)
-        {
-            tbxPrecio.BackColor = Color.White;
+            foreach (char item in cadena)
+            {
+                if (!(char.IsNumber(item)))
+                    return false;
+            }
+            return true;
         }
 
         private void tbxImagen_Leave(object sender, EventArgs e)
@@ -221,6 +215,29 @@ namespace WindowsFormsApp
                     cbxCategoria.SelectedValue = articulo.Categoria.Id;
                 else
                     cbxCategoria.Text = cbxCategoria.Items[0].ToString();
+        }
+
+        private void tbxCodigo_Leave(object sender, EventArgs e)
+        {
+            if (tbxCodigo.Text != "")
+                tbxCodigo.BackColor = Color.White;
+        }
+
+        private void tbxNombre_Leave(object sender, EventArgs e)
+        {
+            if (tbxNombre.Text != "")
+                tbxNombre.BackColor = Color.White;
+        }
+
+        private void tbxPrecio_Leave(object sender, EventArgs e)
+        {
+            if (tbxPrecio.Text != "" && soloNumeros(tbxPrecio.Text))
+            {
+                lblAdvertenciaPrecio.Visible = false;
+                tbxPrecio.BackColor = Color.White;
+            }
+            else
+                lblAdvertenciaPrecio.Visible = true;
         }
 
         /*

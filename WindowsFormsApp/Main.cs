@@ -75,6 +75,7 @@ namespace WindowsFormsApp
             cbxPrecio.SelectedIndex = 0;
             tbxPrecio.Clear();
             tbxPrecio.Enabled = false;
+            tbxBusqueda.Text = "";
         }
 
         private void tbxBusqueda_TextChanged(object sender, EventArgs e)
@@ -163,7 +164,7 @@ namespace WindowsFormsApp
 
         private void tbxPrecio_TextChanged(object sender, EventArgs e)
         {
-            if (tbxPrecio.Text != "")
+            if (tbxPrecio.Text != "" && soloNumeros(tbxPrecio.Text))
                 establecerFiltros();
         }
 
@@ -190,6 +191,19 @@ namespace WindowsFormsApp
             cbxPrecio.SelectedIndex = 0;
             tbxPrecio.Clear();
             tbxPrecio.Enabled = false;
+        }
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char item in cadena)
+            {
+                if (!(char.IsNumber(item)))
+                {
+                    lblAdvertenciaPrecio.Visible = true;
+                    return false;
+                }
+            }
+            lblAdvertenciaPrecio.Visible = false;
+            return true;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

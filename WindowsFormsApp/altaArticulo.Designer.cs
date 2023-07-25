@@ -47,6 +47,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.lblObligatorios = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblAdvertenciaPrecio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -131,7 +132,7 @@
             this.tbxCodigo.Name = "tbxCodigo";
             this.tbxCodigo.Size = new System.Drawing.Size(100, 20);
             this.tbxCodigo.TabIndex = 0;
-            this.tbxCodigo.TextChanged += new System.EventHandler(this.tbxCodigo_TextChanged);
+            this.tbxCodigo.Leave += new System.EventHandler(this.tbxCodigo_Leave);
             // 
             // tbxNombre
             // 
@@ -139,7 +140,7 @@
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(100, 20);
             this.tbxNombre.TabIndex = 1;
-            this.tbxNombre.TextChanged += new System.EventHandler(this.tbxNombre_TextChanged);
+            this.tbxNombre.Leave += new System.EventHandler(this.tbxNombre_Leave);
             // 
             // tbxDescripcion
             // 
@@ -154,7 +155,7 @@
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(100, 20);
             this.tbxPrecio.TabIndex = 5;
-            this.tbxPrecio.TextChanged += new System.EventHandler(this.tbxPrecio_TextChanged);
+            this.tbxPrecio.Leave += new System.EventHandler(this.tbxPrecio_Leave);
             // 
             // tbxImagen
             // 
@@ -253,11 +254,24 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(240, 346);
             this.tableLayoutPanel1.TabIndex = 20;
             // 
+            // lblAdvertenciaPrecio
+            // 
+            this.lblAdvertenciaPrecio.AutoSize = true;
+            this.lblAdvertenciaPrecio.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdvertenciaPrecio.ForeColor = System.Drawing.Color.Red;
+            this.lblAdvertenciaPrecio.Location = new System.Drawing.Point(132, 299);
+            this.lblAdvertenciaPrecio.Name = "lblAdvertenciaPrecio";
+            this.lblAdvertenciaPrecio.Size = new System.Drawing.Size(125, 15);
+            this.lblAdvertenciaPrecio.TabIndex = 21;
+            this.lblAdvertenciaPrecio.Text = "Cargar solo numeros";
+            this.lblAdvertenciaPrecio.Visible = false;
+            // 
             // altaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 430);
+            this.Controls.Add(this.lblAdvertenciaPrecio);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.lblObligatorios);
             this.Controls.Add(this.btnCancelar);
@@ -298,5 +312,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblObligatorios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label lblAdvertenciaPrecio;
     }
 }
